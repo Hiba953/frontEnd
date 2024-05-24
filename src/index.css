@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "Rubik";
+  src: url("/Rubik-VariableFont_wght.ttf") format("truetype");
+}
+body {
+  font-family: "Rubik";
+  
+}
+
+*{
+  box-sizing: border-box;
+}
+@media print {
+  #printable-form, #printable-form * {
+    display: block;
+  }
+}
