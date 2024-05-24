@@ -26,7 +26,6 @@ export function Home() {
     fetchCarburantTotal();
     fetchChauffeurCount();
   }, []);
-
   const fetchData = (endpoint, setData) => {
     fetch(endpoint)
       .then(response => response.json())
@@ -165,6 +164,17 @@ export function Home() {
       </Grid>
 
       
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <br />
 <br />
 <br />

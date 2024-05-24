@@ -23,7 +23,7 @@ export function ReparationGarage() {
   const [montant, setMontant] = useState("");
   const [selectedVehicule, setSelectedVehicule] = useState(null);
   const [vehicules, setVehicules] = useState([]);
-  const [selectedPieces, setSelectedPieces] = useState([]); // New state to store selected pieces and their amounts
+  const [selectedPieces, setSelectedPieces] = useState([]);
   const navigate = useNavigate();
   const authContext = useContext(AuthContext);
 
@@ -59,19 +59,20 @@ export function ReparationGarage() {
 
   const handlePieceSelection = (event, newValue) => {
     if (newValue) {
-        let pieceExists = false;
-        selectedPieces.forEach(selectedPiece => {
-            if (selectedPiece.piece == newValue) {
-                pieceExists = true;
-            }
-        });
-
-        if (!pieceExists) {
-            setSelectedPieces([...selectedPieces, { piece: newValue, amount: 0 }]);
+      let pieceExists = false;
+      selectedPieces.forEach((selectedPiece) => {
+        if (selectedPiece.piece === newValue) {
+          pieceExists = true;
         }
+      });
+  
+      if (!pieceExists) {
+        setSelectedPieces([...selectedPieces, { piece: newValue, amount: '' }]);
+      }
     }
-    setPiece(newValue);
-};
+    setPiece('');
+  };
+  
 
 
   const handleSubmit = async (e) => {
@@ -87,7 +88,7 @@ export function ReparationGarage() {
           },
           body: JSON.stringify({
             vehicule: selectedVehicule?._id || "",
-            pieces: selectedPieces, 
+            pieces: selectedPieces.map(piece => piece.piece), // Extracting only the piece names
             entryDate,
             exitDate,
             panneDeclaree,

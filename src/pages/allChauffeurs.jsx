@@ -81,18 +81,18 @@ export function AllChauffeurs({ onChauffeurCountChange }) {
     {
       field: "action",
       headerName: "ACTIONS",
-      width: 200,
+      maxwidth: 200,
       editable: false,
       sortable: false,
       renderCell: (params) => (
         <div>
-          <Button
+          {/* <Button
             variant="contained"
             component={Link}
             to={`/app/chauffeurs/${params.id}`}
           >
             MODIFIER
-          </Button>
+          </Button> */}
           <Button
             variant="contained"
             color="error"
